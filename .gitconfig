@@ -1,0 +1,86 @@
+[include]
+  path = .gitconfig.usr
+
+[core]
+	editor = vi
+	autocrlf = input
+
+[color]
+	ui = true
+	diff = true
+
+[log]
+	decorate = none
+
+[alias]
+	co = checkout
+	st = status
+	man = help
+	mt = mergetool
+	fo = fetch origin
+	f = fetch
+
+	#Log
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
+	grep = log --all --oneline --grep
+	lgf = log --follow
+	ll = log -1
+	
+	#Blame
+	bl = blame
+	
+	#Branch
+	bc = branch --all --contains
+	b = branch
+	
+	#Cherrypick
+	cp = cherry-pick -x
+	
+	#Reset
+	rh = reset --hard
+	unstage = reset HEAD
+	uncommit = reset --soft HEAD^
+	
+	#Submodules
+	sf = submodule forach
+	su = submodule update
+	
+[blame]
+	date = iso
+[push]
+	default = tracking
+[receive]
+	denyDeleteCurrent = warn
+[rerere]
+	enabled = true
+	autoupdate = true	
+	
+[diff]
+	tool = bc3
+	renames = true
+	mnemonicprefix = true
+	algorithm = patience
+[difftool]
+	prompt = false
+[difftool "bc3"]
+	cmd = \"C:/Program Files (x86)/Beyond Compare 3/bcompare.exe\" \"$LOCAL\" \"$REMOTE\"
+	path = C:\\Program Files (x86)\\Beyond Compare 3/bcompare.exe
+[difftool "araxis"]
+	path = C:\\\\Program Files\\\\Araxis\\\\Araxis Merge\\\\compare.exe
+[difftool "kdiff3"]
+	path = C:\\\\Program Files\\\\TortoiseHg\\\\kdiff3.exe
+
+[merge]
+	summary = true
+	tool = bc3
+	renamelimit = 10000
+[mergetool]
+	prompt = false
+[mergetool "bc3"]
+	trustExitCode = true
+	path = C:\\Program Files (x86)\\Beyond Compare 3\\BCompare.exe
+[mergetool "araxis"]
+	path = C:\\\\Program Files\\\\Araxis\\\\Araxis Merge\\\\compare.exe
+[mergetool "kdiff3"]
+	path = C:\\\\Program Files\\\\TortoiseHg\\\\kdiff3.exe
