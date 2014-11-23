@@ -1,17 +1,13 @@
 [include]
-  path = .gitconfig.usr
-
+	path = .gitconfig.usr
 [core]
 	editor = vi
 	autocrlf = input
-
 [color]
 	ui = true
 	diff = true
-
 [log]
 	decorate = none
-
 [alias]
 	co = checkout
 	st = status
@@ -19,33 +15,31 @@
 	mt = mergetool
 	fo = fetch origin
 	f = fetch
-
-	#Log
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
 	grep = log --all --oneline --grep
+	l = log
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>' --abbrev-commit --date=relative
 	lgf = log --follow
 	ll = log -1
-	
-	#Blame
 	bl = blame
-	
-	#Branch
 	bc = branch --all --contains
 	b = branch
-	
-	#Cherrypick
-	cp = cherry-pick -x
-	
-	#Reset
 	rh = reset --hard
 	unstage = reset HEAD
 	uncommit = reset --soft HEAD^
-	
-	#Submodules
 	sf = submodule forach
 	su = submodule update
-	
+	ba = branch
+	pf = pull --ff-only
+	c = commit
+	ca = commit --amend
+	wip = commit -m WIP
+	cp = cherry-pick -x
+	cpc = cherry-pick --continue
+	cpa = cherry-pick --abort
+	rc = rebase --continue
+	rbc = rebase --continue
+	dt = difftool
 [blame]
 	date = iso
 [push]
@@ -55,22 +49,21 @@
 [rerere]
 	enabled = true
 	autoupdate = true	
-	
 [diff]
 	tool = bc3
 	renames = true
 	mnemonicprefix = true
 	algorithm = patience
+	guitool = beyondcompare3
 [difftool]
 	prompt = false
 [difftool "bc3"]
 	cmd = \"C:/Program Files (x86)/Beyond Compare 3/bcompare.exe\" \"$LOCAL\" \"$REMOTE\"
-	path = C:\\Program Files (x86)\\Beyond Compare 3/bcompare.exe
+	path = C:/Program Files (x86)/Beyond Compare 3/BCompare.exe
 [difftool "araxis"]
 	path = C:\\\\Program Files\\\\Araxis\\\\Araxis Merge\\\\compare.exe
 [difftool "kdiff3"]
-	path = C:\\\\Program Files\\\\TortoiseHg\\\\kdiff3.exe
-
+	path = C://Program Files//TortoiseHg//kdiff3.exe
 [merge]
 	summary = true
 	tool = bc3
@@ -79,8 +72,13 @@
 	prompt = false
 [mergetool "bc3"]
 	trustExitCode = true
-	path = C:\\Program Files (x86)\\Beyond Compare 3\\BCompare.exe
+	path = C:/Program Files (x86)/Beyond Compare 3/BCompare.exe
 [mergetool "araxis"]
 	path = C:\\\\Program Files\\\\Araxis\\\\Araxis Merge\\\\compare.exe
 [mergetool "kdiff3"]
 	path = C:\\\\Program Files\\\\TortoiseHg\\\\kdiff3.exe
+[credential]
+	helper = !\"C:/Program Files (x86)/GitExtensions/GitCredentialWinStore/git-credential-winstore.exe\"
+[difftool "beyondcompare3"]
+	path = C:/Program Files (x86)/Beyond Compare 3/bcomp.exe
+	cmd = \"C:/Program Files (x86)/Beyond Compare 3/bcomp.exe\" \"$LOCAL\" \"$REMOTE\"

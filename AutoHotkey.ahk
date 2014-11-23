@@ -1,3 +1,21 @@
+;-------------------------------------
+;Gerrit copy-paste
+;-------------------------------------
+#Persistent
+return
+
+OnClipboardChange:
+if SubStr(clipboard, 1, 9) = "git fetch"
+{
+if InStr(clipboard, "gitserver1.orcsoftware.com")
+{
+FixString = %clipboard%
+StringReplace, FixString, FixString,&&,;, All
+clipboard:=FixString
+}
+}
+return
+
 ;-----------------------------------
 ;Pure key remappings
 ;-----------------------------------

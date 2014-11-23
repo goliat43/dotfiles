@@ -18,6 +18,7 @@ Plugin 'heaths/vim-msbuild'
 Plugin 'nanotech/jellybeans.vim' "Color
 Plugin 'PProvost/vim-ps1'
 Plugin 'nosami/Omnisharp'
+Plugin 'bling/vim-airline'
 " -------------------------------------------
 
 " Plugins from http://vim-scripts.org/vim/scripts.html
@@ -60,6 +61,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set number
+set backspace=indent,eol,start
 
 nnoremap <silent> <F2> :bn<CR> 
 nnoremap <silent> <S-F2> :bp<CR> 
@@ -72,3 +74,11 @@ filetype plugin indent on
 
 au BufRead,BufNewFile *.targets set filetype=xml | set nowrap 
 au BufRead,BufNewFile *.props set filetype=xml | set nowrap
+
+"Disable splash screen
+set shortmess+=I
+
+
+
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_log_level = 'debug'
