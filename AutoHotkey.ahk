@@ -7,14 +7,27 @@ return
 OnClipboardChange:
 if SubStr(clipboard, 1, 9) = "git fetch"
 {
-if InStr(clipboard, "gitserver1.orcsoftware.com")
-{
-FixString = %clipboard%
-StringReplace, FixString, FixString,&&,;, All
-clipboard:=FixString
-}
+	if InStr(clipboard, "gitserver1.orcsoftware.com")
+	{
+		FixString = %clipboard%
+		StringReplace, FixString, FixString,&&,;, All
+		clipboard:=FixString
+	}
 }
 return
+
+;-----------------------------------
+;Generate GUID
+;-----------------------------------
+#g::	
+	TypeLib := ComObjCreate("Scriptlet.TypeLib")
+	NewGUID := TypeLib.Guid
+	;MsgBox %NewGUID%
+	TmpCB =%ClipBoard%
+	ClipBoard = %NewGUID%
+	Send ^v
+	Sleep, 50
+	ClipBoard = %TmpCB%
 
 ;-----------------------------------
 ;Pure key remappings
@@ -32,8 +45,29 @@ Capslock::Esc
 #q:: Run "C:\Program Files (x86)\Vim\gvim.exe"
 
 ;-----------------------------------
+;Backspace is hard to reach...
+;-----------------------------------
+#Space:: Send, {Backspace}
+
+;-----------------------------------
 ;Media player stuff (DESK0042 SPECIAL)
 ;-----------------------------------
++Media_Play_Pause:: 
+Process, Exist, spotify.exe
+{
+	if ErrorLevel > 0
+	{
+		;Spotify started already
+		WinActivate, ahk_pi %ErrorLevel%
+	}
+	else
+	{
+		;Start Spotify
+		IfExist, C:\Users\niclase\AppData\Roaming\Spotify\spotify.exe
+			Run, C:\Users\niclase\AppData\Roaming\Spotify\spotify.exe
+		Return
+	}	
+}
 +Volume_Down::Media_Prev
 +Volume_Up::Media_Next
 
@@ -120,3 +154,5 @@ Return
 		Send {enter}		
 		ClipBoard = %TmpCb%
 	}
+
+
