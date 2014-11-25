@@ -50,29 +50,29 @@
 	enabled = true
 	autoupdate = true	
 [diff]
-	tool = bc3
+	tool = bc4
 	renames = true
 	mnemonicprefix = true
 	algorithm = patience
 	guitool = beyondcompare3
 [difftool]
 	prompt = false
-[difftool "bc3"]
-	cmd = \"C:/Program Files (x86)/Beyond Compare 3/bcompare.exe\" \"$LOCAL\" \"$REMOTE\"
-	path = C:/Program Files (x86)/Beyond Compare 3/BCompare.exe
+[difftool "bc4"]
+	cmd = \"C:/Program Files (x86)/Beyond Compare 4/bcompare.exe\" \"$LOCAL\" \"$REMOTE\"
+	path = C:/Program Files (x86)/Beyond Compare 4/BCompare.exe
 [difftool "araxis"]
 	path = C:\\\\Program Files\\\\Araxis\\\\Araxis Merge\\\\compare.exe
 [difftool "kdiff3"]
 	path = C://Program Files//TortoiseHg//kdiff3.exe
 [merge]
 	summary = true
-	tool = bc3
+	tool = bc4
 	renamelimit = 10000
 [mergetool]
 	prompt = false
-[mergetool "bc3"]
+[mergetool "bc4"]
 	trustExitCode = true
-	path = C:/Program Files (x86)/Beyond Compare 3/BCompare.exe
+	path = C:/Program Files (x86)/Beyond Compare 4/BCompare.exe
 [mergetool "araxis"]
 	path = C:\\\\Program Files\\\\Araxis\\\\Araxis Merge\\\\compare.exe
 [mergetool "kdiff3"]
@@ -80,5 +80,5 @@
 [credential]
 	helper = !\"C:/Program Files (x86)/GitExtensions/GitCredentialWinStore/git-credential-winstore.exe\"
 [difftool "beyondcompare3"]
-	path = C:/Program Files (x86)/Beyond Compare 3/bcomp.exe
-	cmd = \"C:/Program Files (x86)/Beyond Compare 3/bcomp.exe\" \"$LOCAL\" \"$REMOTE\"
+	path = C:/Program Files (x86)/Beyond Compare 4/bcomp.exe
+	cmd = \"C:/Program Files (x86)/Beyond Compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\"
