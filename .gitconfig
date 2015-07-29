@@ -2,7 +2,7 @@
 	path = .gitconfig.user
 [core]
 	editor = vi
-	autocrlf = input
+	autocrlf = Input
 [color]
 	ui = true
 	diff = true
@@ -27,9 +27,8 @@
 	rh = reset --hard
 	unstage = reset HEAD
 	uncommit = reset --soft HEAD^
-	sf = submodule forach
+	sf = submodule foreach
 	su = submodule update
-	ba = branch
 	pf = pull --ff-only
 	c = commit
 	ca = commit --amend
@@ -40,15 +39,21 @@
 	rc = rebase --continue
 	rbc = rebase --continue
 	dt = difftool
+	serve = !git daemon --base-path=. --export-all --reuseaddr --informative-errors --verbose
+	ri = rebase -i
+	cm = commit -m
+	au = add -u
+	ra = rebase --abort
+	pr = pull --rebase
 [blame]
 	date = iso
 [push]
-	default = tracking
+	default = simple
 [receive]
 	denyDeleteCurrent = warn
 [rerere]
 	enabled = true
-	autoupdate = true	
+	autoupdate = true
 [diff]
 	tool = bc4
 	renames = true
@@ -57,20 +62,14 @@
 	guitool = beyondcompare3
 [difftool]
 	prompt = false
-[difftool "araxis"]
-	path = C:\\\\Program Files\\\\Araxis\\\\Araxis Merge\\\\compare.exe
 [difftool "bc4"]
-	path = C:/Program Files (x86)/Beyond Compare 4/bcomp.exe
-	cmd = \"C:/Program Files (x86)/Beyond Compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\"
-[difftool "kdiff3"]
-	path = C://Program Files//TortoiseHg//kdiff3.exe
+	cmd = \"c:/program files (x86)/beyond compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\"
 [merge]
 	summary = true
 	tool = bc4
 	renamelimit = 10000
 [mergetool]
 	prompt = false
-[mergetool "kdiff3"]
-	path = C:\\\\Program Files\\\\TortoiseHg\\\\kdiff3.exe
-[credential]
-	helper = !\"C:/Program Files (x86)/GitExtensions/GitCredentialWinStore/git-credential-winstore.exe\"
+[mergetool "bc4"]
+	cmd = \"c:/program files (x86)/beyond compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+	trustExitCode = true
