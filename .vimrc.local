@@ -1,0 +1,8 @@
+nmap <leader>t :NERDTree<cr>
+command Wd write|bdelete
+noremap <silent> <F4> :let @+=expand("%:p")<CR>
+
+if !empty($CONEMUBUILD)
+        set t_Co=256
+        set bs=indent,eol,start
+endif

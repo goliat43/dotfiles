@@ -1,5 +1,5 @@
 $gitconfig = "$ENV:USERPROFILE\.gitconfig" 
-$vimrc = "$ENV:USERPROFILE\_vimrc"
+$vimrc = "$ENV:USERPROFILE\.vimrc.local"
 $vimperatorrc = "$ENV:USERPROFILE\_vimperatorrc"
 $ahkConfig = "$ENV:USERPROFILE\AutoHotkey.ahk"
 
@@ -17,7 +17,7 @@ if(Test-Path $ahkConfig) {
 }
 
 cmd "/c mklink /H $gitconfig .gitconfig"
-cmd "/c mklink /H $vimrc _vimrc"
+cmd "/c mklink /H $vimrc .vimrc.local"
 cmd "/c mklink /H $vimperatorrc _vimperatorrc"
 cmd "/c mklink /H $ahkConfig AutoHotkey.ahk"
 
