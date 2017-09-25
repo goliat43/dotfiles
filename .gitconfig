@@ -64,6 +64,10 @@
 	prompt = false
 [difftool "bc4"]
 	cmd = \"c:/program files (x86)/beyond compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\"
+[difftool "vsdiff"]
+	cmd = "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\vsdiffmerge.exe" "$LOCAL" "$REMOTE" //t
+	keepbackup = false
+	trustexistcode = true
 [merge]
 	summary = true
 	tool = bc4
@@ -73,3 +77,7 @@
 [mergetool "bc4"]
 	cmd = \"c:/program files (x86)/beyond compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
 	trustExitCode = true
+[mergetool "vsmerge"]
+	cmd = "C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\vsdiffmerge.exe" "$REMOTE" "$LOCAL" "$BASE" "$MERGED" //m
+	keepbackup = false
+	trustexistcode = true

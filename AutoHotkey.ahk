@@ -1,20 +1,20 @@
 ;-------------------------------------
 ;Gerrit copy-paste
 ;-------------------------------------
-#Persistent
-return
+;#Persistent
+;return
 
-OnClipboardChange:
-if SubStr(clipboard, 1, 9) = "git fetch"
-{
-	if InStr(clipboard, "gitserver1.orcsoftware.com")
-	{
-		FixString = %clipboard%
-		StringReplace, FixString, FixString,&&,;, All
-		clipboard:=FixString
-	}
-}
-return
+;OnClipboardChange:
+;if SubStr(clipboard, 1, 9) = "git fetch"
+;{
+;	if InStr(clipboard, "gitserver1.orcsoftware.com")
+;	{
+;		FixString = %clipboard%
+;		StringReplace, FixString, FixString,&&,;, All
+;		clipboard:=FixString
+;	}
+;}
+;return
 
 ;-----------------------------------
 ;Generate GUID
@@ -33,6 +33,7 @@ return
 ;Pure key remappings
 ;-----------------------------------
 Capslock::Esc
+SC137::AppsKey ; PrintScreen to AppKey
 
 ;-----------------------------------
 ;For semi-vim scrolling
@@ -78,6 +79,7 @@ Process, Exist, spotify.exe
 #e::Run c:\
 
 #w::Run C:\ProgramData\Microsoft\Windows\Start Menu\Programs
+
 ;-----------------------------------
 ;Custom startup of OrcTrader
 ;-----------------------------------
@@ -91,6 +93,32 @@ Process, Exist, spotify.exe
 		Run C:\Users\niclase.ORC\Documents\orc.log
 Return
 
+;-----------------------------------
+;Custom startup of SnippingTool
+;-----------------------------------
+#s::
+	sleep, 150
+	Run, C:\Windows\System32\SnippingTool.exe,,, process_id       
+    WinWait, ahk_pid %process_id%
+    WinActivate, ahk_pid %process_id%
+	Clipboard = ; Empty the clipboard
+	Sleep, 150 ; Wait for clipboard to empty
+	
+	Send ^n ; Start new snippet capture
+	
+	ClipWait, 300, 1
+	Sleep, 400
+	
+	WinWait, ahk_class Microsoft-Windows-Tablet-SnipperEditor
+		WinClose
+	;WinKill, ahk_exe SnippingTool.exe
+	;if ErrorLevel
+	;{
+;		MsgBox, The attempt to copy text onto the clipboard failed.
+;		return
+;	}
+	
+return
 ;-----------------------------------
 ;^!n::
 ;IfWinExist Untitled - Notepad
