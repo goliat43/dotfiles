@@ -3,6 +3,7 @@ $vimrc = "$ENV:USERPROFILE\.vimrc.local"
 $vimperatorrc = "$ENV:USERPROFILE\_vimperatorrc"
 $ahkConfig = "$ENV:USERPROFILE\AutoHotkey.ahk"
 $vsvimrc = "$ENV:USERPROFILE\.vsvimrc"
+$psprofile = $profile.CurrentUserAllHosts
 
 if(Test-Path $gitconfig) {
     rm -Confirm $gitconfig
@@ -19,12 +20,17 @@ if(Test-Path $ahkConfig) {
 if(Test-Path $vsvimrc) {
     rm -Confirm $vsvimrc
 }
+if(Test-Path $psprofile) {
+    rm -Confirm $psprofile
+}
+
 
 cmd "/c mklink /H $gitconfig .gitconfig"
 cmd "/c mklink /H $vimrc .vimrc.local"
 cmd "/c mklink /H $vimperatorrc _vimperatorrc"
 cmd "/c mklink /H $ahkConfig AutoHotkey.ahk"
 cmd "/c mklink /H $vsvimrc .vsvimrc"
+cmd "/c mklink /H $psprofile profile.ps1"
 
 #git clone https://github.com/powerline/fonts.git
 
