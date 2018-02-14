@@ -1,0 +1,40 @@
+#Essentials
+choco install -y git
+choco install -y wget
+choco install -y virtualbox
+choco install -y keepass
+choco install -y keepass-plugin-keeagent
+
+#Web
+choco install -y googlechrome
+choco install -y slack
+chcoo install -y dropbox
+
+#Dev tools
+choco install -y linqpad
+choco install -y sql-server-management-studio
+
+#Generc tools
+chcoo install -y 7zip
+choco install -y sysinternals
+choco install -y notepadplusplus
+choco install -y autohotkey
+choco install -y conemu
+choco install -y everything
+
+#Fun and games..
+choco install -y spotify
+
+#Powershell Modules and Experience
+git clone https://github.com/powerline/fonts.git fonts
+pushd fonts
+.\install.ps1
+popd
+
+Install-Module -AllowClobber Pscx
+Install-Module -AllowClobber z
+
+Install-Module PSReadline
+Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
+Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
+Set-PSReadlineKeyHandler -Key Tab -Function Complete
