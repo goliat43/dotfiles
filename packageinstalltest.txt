@@ -14,13 +14,15 @@ chcoo install -y dropbox
 choco install -y linqpad
 choco install -y sql-server-management-studio
 
-#Generc tools
-chcoo install -y 7zip
+#Generic tools
+choco install -y 7zip
 choco install -y sysinternals
 choco install -y notepadplusplus
 choco install -y autohotkey
 choco install -y conemu
 choco install -y everything
+choco install -y beyondcompare
+
 
 #Fun and games..
 choco install -y spotify
@@ -38,3 +40,6 @@ Install-Module PSReadline
 Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-PSReadlineKeyHandler -Key Tab -Function Complete
+Install-Module VSSetup -Scope CurrentUser
+
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux

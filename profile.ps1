@@ -28,7 +28,7 @@ set-alias ssh 'C:\Program Files\Git\usr\bin\ssh.exe'
 
 Import-Module pscx
 Import-Module z
-Import-VisualStudioVars 2017
+Import-VisualStudioVars 2015
 
 . "$PSScriptRoot\PSReadline.ps1"
 #. "$PSScriptRoot\setfiletime.ps1"

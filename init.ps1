@@ -5,23 +5,19 @@ $vimperatorrc = "$ENV:USERPROFILE\_vimperatorrc"
 $ahkConfig = "$ENV:USERPROFILE\AutoHotkey.ahk"
 $vsvimrc = "$ENV:USERPROFILE\.vsvimrc"
 $psprofile = $profile.CurrentUserAllHosts
-$conemuconfig = """C:\Program Files\ConEmu\ConEmu.xml"""
+$psScriptsFolder = "$($profile.CurrentUserAllHosts.Substring(0, $profile.CurrentUserAllHosts.LastIndexOf('\')))\ProfileScripts"
+$conemuconfig = '"C:\Program Files\ConEmu\ConEmu.xml"'
 
 if(Test-Path $gitconfig) {    
 	rm -Confirm $gitconfig
 }
 cmd "/c mklink /H $gitconfig .gitconfig"
 
-
 if(Test-Path $vimrc) {
     rm -Confirm $vimrc
 }
 cmd "/c mklink /H $vimrc .vimrc.local"
 
-if(Test-Path $vimperatorrc) {
-    rm -Confirm $vimperatorrc
-}
-cmd "/c mklink /H $vimperatorrc _vimperatorrc"
 
 if(Test-Path $ahkConfig) {
     rm -Confirm $ahkConfig	
@@ -37,6 +33,12 @@ if(Test-Path $psprofile) {
     rm -Confirm $psprofile
 }
 cmd "/c mklink /H $psprofile profile.ps1"
+
+if(Test-Path $psScriptsFolder) {
+    rm -Confirm $psScriptsFolder
+}
+[Environment]::SetEnvironmentVariable("PSScripts", $psScriptsFolder, "Machine")
+cmd "/c mklink /J $psScriptsFolder $psScriptsFolder"
 
 if(Test-Path $bashrc) {
     rm -Confirm $bashrc	
