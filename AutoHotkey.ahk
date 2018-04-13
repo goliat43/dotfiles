@@ -83,15 +83,29 @@ Process, Exist, spotify.exe
 ;-----------------------------------
 ;Custom startup of OrcTrader
 ;-----------------------------------
+;#o::
+;	Input key, L1
+;	IfEqual key, p
+;		Run C:\Orc\Src\OrcTraderPlus\bin\Debug\OTPlusCurrentFlavorEttOt64\OrcTraderPlus.exe
+;	IfEqual key, o
+;		Run C:\Orc\Src\OrcTraderPlus\bin\Debug\Contents\Windows\Orc.exe
+;	IfEqual key, l
+;		Run C:\Users\niclase.ORC\Documents\orc.log
+;Return
+
 #o::
 	Input key, L1
-	IfEqual key, p
-		Run C:\Orc\Src\OrcTraderPlus\bin\Debug\OTPlusCurrentFlavorEttOt64\OrcTraderPlus.exe
+	IfEqual key, i
+		Run C:\Users\Niclas.Eriksson\Desktop\SysMonClient.lnk
 	IfEqual key, o
-		Run C:\Orc\Src\OrcTraderPlus\bin\Debug\Contents\Windows\Orc.exe
-	IfEqual key, l
-		Run C:\Users\niclase.ORC\Documents\orc.log
+		Run C:\Users\Niclas.Eriksson\Desktop\IpmOffice.lnk
+	IfEqual key, p
+		Run C:\Users\Niclas.Eriksson\Desktop\vpc4.rdp
+	IfEqual key, n
+		Run gvim C:\Users\Niclas.Eriksson\Desktop\notes.txt
 Return
+
+
 
 ;-----------------------------------
 ;Custom startup of SnippingTool
@@ -119,6 +133,8 @@ Return
 ;	}
 	
 return
+
+;Notepad
 ;-----------------------------------
 ;^!n::
 ;IfWinExist Untitled - Notepad
@@ -126,6 +142,20 @@ return
 ;else
 ;	Run Notepad
 ;return
+;-----------------------------------
+
+;Everything - Find
+;-----------------------------------
+#f::
+	;IfWinExist, ahk_class EVERYTHING_TASKBAR_NOTIFICATION
+	;{
+	;	WinActivate
+		PostMessage, 1025, 0, 0x0203
+	;}
+	;else
+	;	msgbox, Everything is not open
+return
+
 ;-----------------------------------
 
 ;-----------------------------------

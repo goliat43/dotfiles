@@ -1,4 +1,10 @@
+set langmenu=en_US
+let $LANG = 'en_US'
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+
 nmap <leader>t :NERDTree<cr>
+nmap <silent> <leader>y :let @* = expand('%:p')<CR>
 command Wd write|bdelete
 noremap <silent> <F4> :let @+=expand("%:p")<CR>
 
@@ -6,3 +12,10 @@ if !empty($CONEMUBUILD)
         set t_Co=256
         set bs=indent,eol,start
 endif
+
+set number relativenumber
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END

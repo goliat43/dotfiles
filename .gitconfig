@@ -39,12 +39,17 @@
 	rc = rebase --continue
 	rbc = rebase --continue
 	dt = difftool
-	serve = !git daemon --base-path=. --export-all --reuseaddr --informative-errors --verbose
+	serve = daemon --verbose --export-all --base-path=.git --reuseaddr --strict-paths .git/
 	ri = rebase -i
 	cm = commit -m
 	au = add -u
 	ra = rebase --abort
 	pr = pull --rebase
+	dtc = difftool --cached
+	d = diff
+	dc = diff --cached
+	lga = !git lg --all
+	ignore = !git checkout gitignore -- .gitignore && git reset HEAD .gitignore
 [blame]
 	date = iso
 [push]

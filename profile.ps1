@@ -1,5 +1,5 @@
 #Current user all hosts
-
+remove-item alias:curl
 Remove-Item alias:wget
 
 function which {	
@@ -30,5 +30,4 @@ Import-Module pscx
 Import-Module z
 Import-VisualStudioVars 2015
 
-. "$PSScriptRoot\PSReadline.ps1"
-#. "$PSScriptRoot\setfiletime.ps1"
+Get-ChildItem $env:PSScripts -filter "*.ps1" | ForEach-Object {. (Join-Path $env:PSScripts $_.Name)} | Out-Null
