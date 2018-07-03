@@ -1,5 +1,8 @@
 set langmenu=en_US
+set spelllang=en
 let $LANG = 'en_US'
+nmap <silent> <leader>s :set spell!<CR>
+
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 

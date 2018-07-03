@@ -7,6 +7,7 @@ $vsvimrc = "$ENV:USERPROFILE\.vsvimrc"
 $psprofile = $profile.CurrentUserAllHosts
 $psScriptsFolder = "$($profile.CurrentUserAllHosts.Substring(0, $profile.CurrentUserAllHosts.LastIndexOf('\')))\ProfileScripts"
 $conemuconfig = '"C:\Program Files\ConEmu\ConEmu.xml"'
+$linpadCustomExtensions = "`"$ENV:USERPROFILE\Documents\LINQPad Plugins\Framework 4.6\MyExtensions.FW46.linq`""
 
 if(Test-Path $gitconfig) {    
 	rm -Confirm $gitconfig
@@ -49,6 +50,11 @@ if(Test-Path $conemuconfig) {
     rm -Confirm $conemuconfig	
 }
 cmd "/c mklink /H $conemuconfig conemu.xml"
+
+if(Test-Path $linpadCustomExtensions) {
+    rm -Confirm $linpadCustomExtensions	
+}
+cmd "/c mklink /H $linpadCustomExtensions MyExtensions.FW46.linq"
 
 #git clone https://github.com/powerline/fonts.git
 

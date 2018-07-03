@@ -95,6 +95,8 @@ Process, Exist, spotify.exe
 
 #o::
 	Input key, L1
+	IfEqual key, u
+		Run C:\Users\Niclas.Eriksson\Desktop\SysMonClient-Local.lnk
 	IfEqual key, i
 		Run C:\Users\Niclas.Eriksson\Desktop\SysMonClient.lnk
 	IfEqual key, o
