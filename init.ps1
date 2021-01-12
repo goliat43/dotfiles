@@ -56,6 +56,7 @@ if(Test-Path $linpadCustomExtensions) {
 }
 cmd "/c mklink /H $linpadCustomExtensions MyExtensions.FW46.linq"
 
+# Replace w. https://www.nerdfonts.com/
 #git clone https://github.com/powerline/fonts.git
 
 #Create git user config
