@@ -26,8 +26,12 @@ set-alias sudo elevate-process
 set-alias g git
 set-alias ssh 'C:\Program Files\Git\usr\bin\ssh.exe'
 
+
+
 Import-Module pscx
 Import-Module z
-Import-VisualStudioVars 2015
+#Import-VisualStudioVars 2017
+oh-my-posh --init --shell pwsh --config C:\src\dotfiles\oh-my-posh.json | Invoke-Expression
+Import-Module -Name Terminal-Icons
 
 Get-ChildItem $env:PSScripts -filter "*.ps1" | ForEach-Object {. (Join-Path $env:PSScripts $_.Name)} | Out-Null
