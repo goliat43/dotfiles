@@ -14,32 +14,21 @@ if(Test-Path $gitconfig) {
 }
 cmd "/c mklink /H $gitconfig .gitconfig"
 
-if(Test-Path $vimrc) {
-    rm -Confirm $vimrc
-}
-cmd "/c mklink /H $vimrc .vimrc.local"
-
-
 if(Test-Path $ahkConfig) {
     rm -Confirm $ahkConfig	
 }
 cmd "/c mklink /H $ahkConfig AutoHotkey.ahk"
 
-if(Test-Path $vsvimrc) {
-    rm -Confirm $vsvimrc
-}
-cmd "/c mklink /H $vsvimrc .vsvimrc"
-
 if(Test-Path $psprofile) {
     rm -Confirm $psprofile
 }
-cmd "/c mklink /H $psprofile profile.ps1"
+cmd "/c mklink /H ""$psprofile"" profile.ps1"
 
 if(Test-Path $psScriptsFolder) {
     rm -Confirm $psScriptsFolder
 }
 [Environment]::SetEnvironmentVariable("PSScripts", $psScriptsFolder, "Machine")
-cmd "/c mklink /J $psScriptsFolder $psScriptsFolder"
+cmd "/c mklink /J ""$psScriptsFolder"" .\Scripts\PsProfileScripts"
 
 if(Test-Path $bashrc) {
     rm -Confirm $bashrc	
